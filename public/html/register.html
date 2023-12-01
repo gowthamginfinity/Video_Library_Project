@@ -24,7 +24,7 @@
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
       crossorigin="anonymous"
     ></script>
-    <link rel="shortcut icon" href="public/icons/favicon.ico" />
+    <link rel="shortcut icon" href="../../public/icons/favicon.ico" />
     <link rel="stylesheet" href="../../src/css/register.css" />
   </head>
   <body>
@@ -37,9 +37,13 @@
 
       <section>
             <div class="sec_reg">
-               <div><input type="text"></div>
-               <div><input type="text"></div>
-               <div><input type="password"></div>
+               <div><label for="ui">User Id</label><input type="text" class="form-control" id="ui"></div>
+               <div><label for="un">User Name</label><input type="text"  class="form-control" id="un"></div>
+               <div><label for="pswd">Password</label><input type="password"  class="form-control" id="pswd"></div>
+               <div><label for="eml">Email</label><input type="email"  class="form-control" id="eml"></div>
+               <div><label for="pne">Phone Number</label><input type="tel"  class="form-control" id="pne"></div>
+               <div><label for="dte">Age</label><input type="date"  class="form-control" id="dte"></div>
+               <p style="text-align: center;margin-top: 30px;"><button class="btn btn-primary">Register</button></p>
             </div>
       </section>
       <footer></footer>
