@@ -25,6 +25,106 @@
       crossorigin="anonymous"
     ></script>
     <link rel="shortcut icon" href="public/icons/favicon.ico" />
+    <link rel="stylesheet" href="src/css/index.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="contain-div">
+      <header>VIDEO LIBRARY</header>
+
+      <article>
+        <marquee class="scrollable">Upload your feeling and ideas</marquee>
+      </article>
+
+      <section>
+        <div class="sec_1">
+          <div>
+            <input
+              type="text"
+              class="form-control in"
+              placeholder="Enter User Id"
+            />
+          </div>
+          <div>
+            <input
+              type="password"
+              class="form-control in"
+              placeholder="Enter Password"
+            />
+          </div>
+          <div>
+            <button class="btn btn-primary mt-2">Sign In</button>
+          </div>
+          <div style="font-weight: bold">(or)</div>
+          <div><span>Not Registered? </span><a href=""> Sign Up</a></div>
+        </div>
+        <div class="sec_2">
+          <div id="demo" class="carousel slide sed" data-bs-ride="carousel">
+            <!-- Indicators/dots -->
+            <div class="carousel-indicators">
+              <button
+                type="button"
+                data-bs-target="#demo"
+                data-bs-slide-to="0"
+                class="active"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#demo"
+                data-bs-slide-to="1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#demo"
+                data-bs-slide-to="2"
+              ></button>
+            </div>
+
+            <!-- The slideshow/carousel -->
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="3500">
+                <img
+                  src="https://images.pexels.com/photos/2885320/pexels-photo-2885320.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                  alt="Los Angeles"
+                  class="d-block w-100"
+                />
+              </div>
+              <div class="carousel-item" data-bs-interval="3500">
+                <img
+                  src="https://images.pexels.com/photos/1276429/pexels-photo-1276429.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                  alt="Chicago"
+                  class="d-block w-100"
+                />
+              </div>
+              <div class="carousel-item" data-bs-interval="3500">
+                <img
+                  src="https://images.pexels.com/photos/38136/pexels-photo-38136.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                  alt="New York"
+                  class="d-block w-100"
+                />
+              </div>
+            </div>
+
+            <!-- Left and right controls/icons -->
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#demo"
+              data-bs-slide="prev"
+            >
+              <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#demo"
+              data-bs-slide="next"
+            >
+              <span class="carousel-control-next-icon"></span>
+            </button>
+          </div>
+        </div>
+      </section>
+      <footer></footer>
+    </div>
+  </body>
 </html>
