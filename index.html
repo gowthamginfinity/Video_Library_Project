@@ -3,128 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Video library</title>
+    <title>Video Library</title>
+    <link rel="shortcut icon" href="./public/icons/shortcut_icon.png" />
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
-    />
-    <script
-      src="https://code.jquery.com/jquery-3.7.1.min.js"
-      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-      crossorigin="anonymous"
-    ></script>
-    <link rel="shortcut icon" href="public/icons/favicon.ico" />
-    <link rel="stylesheet" href="src/css/index.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="./src/css/index.css">
   </head>
   <body>
-    <div class="contain-div">
-      <header>VIDEO LIBRARY</header>
-
-      <article>
-        <marquee class="scrollable">Upload your feeling and ideas</marquee>
-      </article>
-
-      <section>
-        <div class="sec_1">
-          <div>
-            <input
-              type="text"
-              class="form-control in"
-              placeholder="Enter User Id"
-            />
-          </div>
-          <div>
-            <input
-              type="password"
-              class="form-control in"
-              placeholder="Enter Password"
-            />
-          </div>
-          <div>
-            <button class="btn btn-primary mt-2">Sign In</button>
-          </div>
-          <div style="font-weight: bold">(or)</div>
-          <div><span>Not Registered? </span><a href=""> Sign Up</a></div>
-        </div>
-        <div class="sec_2">
-          <div id="demo" class="carousel slide sed" data-bs-ride="carousel">
-            <!-- Indicators/dots -->
-            <div class="carousel-indicators">
-              <button
-                type="button"
-                data-bs-target="#demo"
-                data-bs-slide-to="0"
-                class="active"
-              ></button>
-              <button
-                type="button"
-                data-bs-target="#demo"
-                data-bs-slide-to="1"
-              ></button>
-              <button
-                type="button"
-                data-bs-target="#demo"
-                data-bs-slide-to="2"
-              ></button>
-            </div>
-
-            <!-- The slideshow/carousel -->
-            <div class="carousel-inner">
-              <div class="carousel-item active" data-bs-interval="3500">
-                <img
-                  src="https://images.pexels.com/photos/2885320/pexels-photo-2885320.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                  alt="Los Angeles"
-                  class="d-block w-100"
-                />
-              </div>
-              <div class="carousel-item" data-bs-interval="3500">
-                <img
-                  src="https://images.pexels.com/photos/1276429/pexels-photo-1276429.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                  alt="Chicago"
-                  class="d-block w-100"
-                />
-              </div>
-              <div class="carousel-item" data-bs-interval="3500">
-                <img
-                  src="https://images.pexels.com/photos/38136/pexels-photo-38136.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                  alt="New York"
-                  class="d-block w-100"
-                />
-              </div>
-            </div>
-
-            <!-- Left and right controls/icons -->
-            <button
-              class="carousel-control-prev"
-              type="button"
-              data-bs-target="#demo"
-              data-bs-slide="prev"
-            >
-              <span class="carousel-control-prev-icon"></span>
-            </button>
-            <button
-              class="carousel-control-next"
-              type="button"
-              data-bs-target="#demo"
-              data-bs-slide="next"
-            >
-              <span class="carousel-control-next-icon"></span>
-            </button>
-          </div>
-        </div>
-      </section>
-      <footer></footer>
+    <div id="root">
+      <header>
+        <div id="logo"><img src="./public/images/logo.png" alt="logo"></div>
+        <div id="title">Video Library</div>
+        <div><button id="adminBtn">Admin</button></div>
+      </header>
     </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
