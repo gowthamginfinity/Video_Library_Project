@@ -1,4 +1,4 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
 * {
   margin: 0px;
   padding: 0px;
@@ -6,16 +6,10 @@
   font-family: "Inter", sans-serif;
 }
 
-
-#bg_container {
-  background-image: url("./../../public/images/bg4.jpg");
-  background-size: 100%;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 780px;
-}
+/* ===========first container (background image)============ */
 
 
+/* --------------- header ------------ */
 header {
   display: grid;
   grid-template-columns: 2fr 8fr 2fr;
@@ -23,6 +17,7 @@ header {
   height: 90px;
   border: 1px solid black;
   text-align: center;
+  /* From https://css.glass */
   background: rgba(255, 255, 255, 0.55);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(11.7px);
@@ -59,6 +54,7 @@ a:hover #adminBtn {
   transition: 0.5s;
 }
 
+/* --------------------------------------------- */
 
 #credinals_Container {
   display: flex;
@@ -68,10 +64,11 @@ a:hover #adminBtn {
 }
 
 #credinals {
-  width: 600px;
+
   border-radius: 25px;
   padding: 40px 0px 100px 0px;
 
+  /* From https://css.glass */
   background: rgba(255, 255, 255, 0.22);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(9.3px);
@@ -109,13 +106,6 @@ a:hover #adminBtn {
   box-shadow: 0px 0px 3px 5px rgba(0, 0, 0, 0.1);
 }
 
-#btnContainer {
-  display: flex;
-  justify-content: space-between;
-  text-align: center;
-  width: 300px;
-  margin: auto;
-}
 
 
 .glow-on-hover {
@@ -267,6 +257,7 @@ a:hover #adminBtn {
   color: #fff;
 }
 
+/* ----------bigText----------- */
 
 #bigTextContainer {
   display: flex;
@@ -306,6 +297,7 @@ a:hover #adminBtn {
   letter-spacing: -7px;
 }
 
+/* for clock */
 #clock_block {
   display: flex;
   justify-content: center;
@@ -367,6 +359,7 @@ a:hover #adminBtn {
   margin-top: 10px;
 }
 
+/* -------slide-------- */
 
 #slideContainer {
   height: 500px;
@@ -491,4 +484,4 @@ footer {
 .linkContainer div:nth-child(1) a button:nth-child(1){
   color: rgb(66, 66, 255);
 }
- */
+
