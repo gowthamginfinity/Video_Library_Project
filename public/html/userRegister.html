@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="./../../src/css/userRegister.css" />
     <link rel="stylesheet" href="./../../src/css/common.css" />
     <script src="./../../src/script/clock.js"></script>
+    <script src="./../../src/script/userRegister.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
   </head>
   <body>
@@ -35,17 +36,17 @@
           <div id="credinals">
             <div id="loginHere">User Sign Up</div>
             <div id="allCredinals">
-              <div><input type="text" class="firstName up" placeholder="Enter Full Name" /></div>
+              <div><input type="text" class="name up" placeholder="Enter Full Name" /></div>
 
-              <div><input type="text" placeholder="Enter User Name" class="userName up" /></div>
+              <div><input type="text" placeholder="Enter User Id" class="userId up" /></div>
               <div><input type="password" placeholder="Enter Password" class="password up" /></div>
-              <div><input type="date" class="date up" /></div>
+              <div><input type="date" class="date up" placeholder="Enter Date" /></div>
               <div><input type="number" class="phone up" placeholder="Enter Mobile Number" /></div>
               <div><input type="email" class="email up" placeholder="Enter Email" /></div>
             </div>
             <div id="btnContainer">
               <a href="">
-                <button class="learn-more bt">
+                <button class="learn-more bt" onclick="userRegister()">
                   <span class="circle" aria-hidden="true">
                     <span class="icon arrow"></span>
                   </span>
