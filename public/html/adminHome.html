@@ -12,127 +12,10 @@
     />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <title>Admin Home | Video Library</title>
-    <style>
-      header {
-        display: grid;
-        grid-template-columns: 2fr 8fr 2fr;
-        align-items: center;
-        height: 90px;
-        border: 1px solid black;
-        text-align: center;
-        /* From https://css.glass */
-        background: rgba(255, 255, 255, 0.55);
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(11.7px);
-        -webkit-backdrop-filter: blur(11.7px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-      }
-      #logo img {
-        width: 60px;
-      }
-      #titleContainer {
-        font-weight: 650;
-        font-size: 37px;
-      }
-      #adminBtn {
-        border: none;
-        border-radius: 10px;
-        padding: 5px 20px;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-        transition: 0.3s;
-      }
-      #adminBtn:hover {
-        box-shadow: rgb(152, 151, 151) 0px 3px 1px;
-      }
-      #adminBtn:active {
-        box-shadow: none;
-      }
-      a {
-        text-decoration: none;
-        color: black;
-      }
-      a:hover #adminBtn {
-        color: rgb(95, 95, 244);
-        transition: 0.5s;
-      }
-      #nameWelcome {
-        height: 50px;
-        background-color: rgb(137, 169, 251, 0.5);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      #namme {
-        margin-left: 5px;
-        font-weight: bold;
-      }
-      #addContainer {
-        display: flex;
-        height: 50px;
-        justify-content: center;
-        align-items: center;
-      }
-    </style>
-    <script>
-      let http = new XMLHttpRequest();
-
-      function bodyload() {
-        document.getElementById("namme").innerHTML = sessionStorage.getItem("name_admin");
-        loadVideos;
-      }
-      function saveVideos() {
-        let saveVideos = {
-          videoTitle: document.getElementById("videoTitle").value,
-          videoDescription: document.getElementById("videoDescription").value,
-          videoTitle: document.getElementById("videoUrl").value,
-          categoryType: document.getElementById("categoryName").value,
-        };
-
-        http.open("POST", "http://localhost:7140/save/videos", true);
-
-        http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        http.onload = function () {
-          if (http.status >= 200 && http.status < 300) {
-            console.log(JSON.parse(http.responseText));
-          } else {
-            console.error(http.statusText);
-          }
-        };
-        http.onerror = function () {
-          console.error(http.statusText);
-        };
-        http.send(JSON.stringify(saveVideos));
-        alert("Video Added Successfully");
-      }
-      function loadVideos() {
-        http.open("get", "http://localhost:7140/get/videos", true);
-        http.send();
-        http.onreadystatechange = function () {
-          if (http.readyState == 4) {
-            let details = JSON.parse(http.responseText);
-            details.map((detail) => {
-              let save = `<tr>
-                <td>${detail.videoTitle}</td>
-                <td><iframe src=${detail.videoUrl} width="250" height="150"></iframe></td>
-                <td style="width:250px">
-                  <button class="btn btn-info" id="btnDetails" value=${detail._id}><span class="bi bi-eye-fill"></span></button>
-                  <button class="btn btn-warning" id="btnEdit" value=${detail._id}><span class="bi bi-pen-fill"></span></button>
-                  <button class="btn btn-danger" id="btnDelete" value=${detail._id}><span class="bi bi-trash-fill"></span></button>
-                  </td> 
-                </tr>`;
-              document.querySelector("tbody").appendChild(save);
-            });
-          }
-        };
-      }
-
-      function signOut() {
-        sessionStorage.removeItem("name_admin");
-        location.href = "./adminLogin.html";
-      }
-    </script>
+    <link rel="stylesheet" href="./../../src/css/adminHome.css" />
+    <script src="./../../src/script/crud.js"></script>
   </head>
-  <body onload="bodyload()">
+  <body onload="videoLoad()">
     <div>
       <header>
         <div id="logo">
@@ -170,7 +53,7 @@
                   <dd><input type="text" id="videoUrl" class="form-control" /></dd>
                   <dt>Category Type</dt>
                   <dd>
-                    <select id="categoryName" class="form-select">
+                    <select id="categoryType" class="form-select">
                       <option>Educational Videos</option>
                       <option>Entertainment Videos</option>
                       <option>Documentaries</option>
@@ -203,7 +86,24 @@
           </div>
         </div>
       </div>
-    
+      <div id="grid">
+        <div >
+          <h3>Videos</h3>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Preview</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div>
+          <main id="mainn"></main>
+        </div>
+      </div>
     </div>
 
     <script
@@ -211,5 +111,6 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   </body>
 </html>

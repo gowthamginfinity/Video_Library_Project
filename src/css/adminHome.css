@@ -1,0 +1,64 @@
+
+header {
+  display: grid;
+  grid-template-columns: 2fr 8fr 2fr;
+  align-items: center;
+  height: 90px;
+  border: 1px solid black;
+  text-align: center;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(11.7px);
+  -webkit-backdrop-filter: blur(11.7px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+#logo img {
+  width: 60px;
+}
+#titleContainer {
+  font-weight: 650;
+  font-size: 37px;
+}
+#adminBtn {
+  border: none;
+  border-radius: 10px;
+  padding: 5px 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: 0.3s;
+}
+#adminBtn:hover {
+  box-shadow: rgb(152, 151, 151) 0px 3px 1px;
+}
+#adminBtn:active {
+  box-shadow: none;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+a:hover #adminBtn {
+  color: rgb(95, 95, 244);
+  transition: 0.5s;
+}
+#nameWelcome {
+  height: 50px;
+  background-color: rgb(137, 169, 251, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#namme {
+  margin-left: 5px;
+  font-weight: bold;
+}
+#addContainer {
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+}
+#grid{
+  display: grid;
+  grid-template-columns: 6fr 6fr;
+}

@@ -112,7 +112,7 @@ let adminSchema  = new mongoose.Schema({
   },
 });
 const UserRegister = mongoose.model("users", registerSchema);
-const Videoss = mongoose.model("videos", videosSchema);
-const Adminn = mongoose.model("admins", adminSchema);
+const Videos = mongoose.model("videos", videosSchema);
+const Admin = mongoose.model("admins", adminSchema);
 
-module.exports = { UserRegister, Videoss, Adminn };
+module.exports = { UserRegister, Videos, Admin };
