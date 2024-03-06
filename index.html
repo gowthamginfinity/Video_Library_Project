@@ -13,15 +13,18 @@
     />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <link rel="stylesheet" type="text/css" href="./src/css/userLogin.css" />
-    <link rel="stylesheet" type="text/css"  href="./src/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="./src/css/common.css" />
     <script src="./src/script/clock.js"></script>
+    <script src="./src/script/crud.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
   </head>
   <body>
     <div id="root">
       <div id="bg_container">
         <header>
-          <div id="logo"><a href="./index.html"><img src="./public/images/logo.png" alt="logo" /></a></div>
+          <div id="logo">
+            <a href="./index.html"><img src="./public/images/logo.png" alt="logo" /></a>
+          </div>
 
           <div id="titleContainer">
             <div id="title">VIDEO LIBRARY</div>
@@ -33,22 +36,21 @@
         <div id="credinals_Container">
           <div id="credinals">
             <div id="loginHere">Login Here</div>
+            <div id="error" style="color: red; text-align: center; background-color: rgb(248, 248, 248, 0.7)"></div>
             <div id="allCredinals">
-              <input type="text" class="userName up" placeholder="Enter Username" /> <input type="password" class="userName up" placeholder="Enter Password" />
+              <input type="text" class="userId up" placeholder="Enter Username" /> <input type="password" class="password up" placeholder="Enter Password" />
             </div>
             <div id="btnContainer">
-              <!-- <a href=""><button class="btnn">Sign up</button></a> -->
               <a href="./public/html/userRegister.html">
                 <button class="glow-on-hover" type="button">Sign up</button>
               </a>
-              <a href="./public/html/userHome.html">
-                <button class="learn-more bt">
-                  <span class="circle" aria-hidden="true">
-                    <span class="icon arrow"></span>
-                  </span>
-                  <span class="button-text">Login</span>
-                </button>
-              </a>
+
+              <button class="learn-more bt" onclick="userLogin()">
+                <span class="circle" aria-hidden="true">
+                  <span class="icon arrow"></span>
+                </span>
+                <span class="button-text">Login</span>
+              </button>
             </div>
           </div>
         </div>
@@ -96,17 +98,43 @@
             <div><a href="mailto:molu.gp@gmail.com">molu.gp@gmail.com</a></div>
           </div>
           <div class="linkContainer">
-            <div><a href="https://www.facebook.com/ginfinitygowtham/"><button><span class="bi bi-facebook"></span></button></a></div>
-            <div><a href="https://www.instagram.com/ginfinitygowtham/?next=%2F"><button><span class="bi bi-instagram"></span></button></a></div>
-            <div><a href="https://www.linkedin.com/in/g-gowtham-prasanth-869b691a3/"><button><span class="bi bi-linkedin"></span></button></a></div>
-            <div><a href="https://www.reddit.com/user/GowthamGC5/"><button><span class="bi bi-reddit"></span></button></a></div>
-            <div><a href="https://youtube.com/@gowthamginfinity?si=SsvEt5O2BjcOjRAC"><button><span class="bi bi-youtube"></span></button></a></div>
-            <div><a href="https://github.com/gowthamginfinity"><button><span class="bi bi-github"></span></button></a></div>
-            <div><a href="https://twitter.com/GowthamGinfini8"><button><span class="bi bi-twitter-x"></span></button></a></div>
+            <div>
+              <a href="https://www.facebook.com/ginfinitygowtham/"
+                ><button><span class="bi bi-facebook"></span></button
+              ></a>
+            </div>
+            <div>
+              <a href="https://www.instagram.com/ginfinitygowtham/?next=%2F"
+                ><button><span class="bi bi-instagram"></span></button
+              ></a>
+            </div>
+            <div>
+              <a href="https://www.linkedin.com/in/g-gowtham-prasanth-869b691a3/"
+                ><button><span class="bi bi-linkedin"></span></button
+              ></a>
+            </div>
+            <div>
+              <a href="https://www.reddit.com/user/GowthamGC5/"
+                ><button><span class="bi bi-reddit"></span></button
+              ></a>
+            </div>
+            <div>
+              <a href="https://youtube.com/@gowthamginfinity?si=SsvEt5O2BjcOjRAC"
+                ><button><span class="bi bi-youtube"></span></button
+              ></a>
+            </div>
+            <div>
+              <a href="https://github.com/gowthamginfinity"
+                ><button><span class="bi bi-github"></span></button
+              ></a>
+            </div>
+            <div>
+              <a href="https://twitter.com/GowthamGinfini8"
+                ><button><span class="bi bi-twitter-x"></span></button
+              ></a>
+            </div>
           </div>
-        
         </div>
-    
       </footer>
     </div>
 
@@ -115,5 +143,5 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-  </body>
+     </body>
 </html>

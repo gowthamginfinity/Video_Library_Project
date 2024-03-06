@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="./../../src/css/adminLogin.css" />
     <link rel="stylesheet" href="./../../src/css/common.css" />
     <script src="./../../src/script/clock.js"></script>
+    <script src="./../../src/script/crud.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
   </head>
   <body>
@@ -34,8 +35,9 @@
         <div id="credinals_Container">
           <div id="credinals">
             <div id="loginHere">Admin Login Here</div>
+            <div id="error" style="color: red; text-align: center; background-color: rgb(248, 248, 248, 0.7)"></div>
             <div id="uspass">
-              <input type="text" class="userName up" placeholder="Enter Username" /> <input type="password" class="userName up" placeholder="Enter Password" />
+              <input type="text" class="userId up" placeholder="Enter Username" /> <input type="password" class="password up" placeholder="Enter Password" />
             </div>
             <div id="btnContainer">
               <img
@@ -44,17 +46,15 @@
                 style="width: 95px; margin: -27px 0px 0px 20px; transform: rotateY(180deg)"
               />
 
-              <a href="">
-                <button class="learn-more bt">
+                <button class="learn-more bt" onclick="adminLogin()">
                   <span class="circle" aria-hidden="true">
                     <span class="icon arrow"></span>
                   </span>
                   <span class="button-text">Login</span>
                 </button>
-              </a>
             </div>
           </div>
-        </div>
+        </div>      
       </div>
       <div id="bigTextContainer">
         <span id="bigText">EXPLORE MORE</span>

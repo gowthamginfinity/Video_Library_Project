@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./../../public/icons/shortcut_icon.png" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <title>Admin Home | Video Library</title>
+    <style>
+      header {
+        display: grid;
+        grid-template-columns: 2fr 8fr 2fr;
+        align-items: center;
+        height: 90px;
+        border: 1px solid black;
+        text-align: center;
+        /* From https://css.glass */
+        background: rgba(255, 255, 255, 0.55);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(11.7px);
+        -webkit-backdrop-filter: blur(11.7px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      #logo img {
+        width: 60px;
+      }
+      #titleContainer {
+        font-weight: 650;
+        font-size: 37px;
+      }
+      #adminBtn {
+        border: none;
+        border-radius: 10px;
+        padding: 5px 20px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        transition: 0.3s;
+      }
+      #adminBtn:hover {
+        box-shadow: rgb(152, 151, 151) 0px 3px 1px;
+      }
+      #adminBtn:active {
+        box-shadow: none;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+      }
+      a:hover #adminBtn {
+        color: rgb(95, 95, 244);
+        transition: 0.5s;
+      }
+      #nameWelcome {
+        height: 50px;
+        background-color: rgb(137, 169, 251, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #namme {
+        margin-left: 5px;
+        font-weight: bold;
+      }
+      #addContainer {
+        display: flex;
+        height: 50px;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+    <script>
+      let http = new XMLHttpRequest();
+
+      function bodyload() {
+        document.getElementById("namme").innerHTML = sessionStorage.getItem("name_admin");
+        loadVideos;
+      }
+      function saveVideos() {
+        let saveVideos = {
+          videoTitle: document.getElementById("videoTitle").value,
+          videoDescription: document.getElementById("videoDescription").value,
+          videoTitle: document.getElementById("videoUrl").value,
+          categoryType: document.getElementById("categoryName").value,
+        };
+
+        http.open("POST", "http://localhost:7140/save/videos", true);
+
+        http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        http.onload = function () {
+          if (http.status >= 200 && http.status < 300) {
+            console.log(JSON.parse(http.responseText));
+          } else {
+            console.error(http.statusText);
+          }
+        };
+        http.onerror = function () {
+          console.error(http.statusText);
+        };
+        http.send(JSON.stringify(saveVideos));
+        alert("Video Added Successfully");
+      }
+      function loadVideos() {
+        http.open("get", "http://localhost:7140/get/videos", true);
+        http.send();
+        http.onreadystatechange = function () {
+          if (http.readyState == 4) {
+            let details = JSON.parse(http.responseText);
+            details.map((detail) => {
+              let save = `<tr>
+                <td>${detail.videoTitle}</td>
+                <td><iframe src=${detail.videoUrl} width="250" height="150"></iframe></td>
+                <td style="width:250px">
+                  <button class="btn btn-info" id="btnDetails" value=${detail._id}><span class="bi bi-eye-fill"></span></button>
+                  <button class="btn btn-warning" id="btnEdit" value=${detail._id}><span class="bi bi-pen-fill"></span></button>
+                  <button class="btn btn-danger" id="btnDelete" value=${detail._id}><span class="bi bi-trash-fill"></span></button>
+                  </td> 
+                </tr>`;
+              document.querySelector("tbody").appendChild(save);
+            });
+          }
+        };
+      }
+
+      function signOut() {
+        sessionStorage.removeItem("name_admin");
+        location.href = "./adminLogin.html";
+      }
+    </script>
+  </head>
+  <body onload="bodyload()">
+    <div>
+      <header>
+        <div id="logo">
+          <a href="./index.html"><img src="./../../public/images/logo.png" alt="logo" /></a>
+        </div>
+
+        <div id="titleContainer">
+          <div id="title">VIDEO LIBRARY</div>
+        </div>
+        <div id="adminBtnContainer">
+          <button id="adminBtn" onclick="signOut()">Sign Out</button>
+        </div>
+      </header>
+      <div id="nameWelcome">Welcome :<span id="namme"></span></div>
+      <div id="addContainer">
+        <button class="btn btn-primary" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#add">Add Video</button>
+        <div class="modal fade" id="add">
+          <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4>Add Video</h4>
+                <button class="btn btn-close" data-bs-dismiss="modal"></button>
+              </div>
+              <div class="modal-body">
+                <dl>
+                  <dt>Video Title</dt>
+                  <dd><input type="text" id="videoTitle" class="form-control" /></dd>
+                  <dd><span id="iderror"></span></dd>
+
+                  <dt>Video Description</dt>
+                  <dd>
+                    <input type="text" id="videoDescription" class="form-control" />
+                  </dd>
+                  <dt>Video Url</dt>
+                  <dd><input type="text" id="videoUrl" class="form-control" /></dd>
+                  <dt>Category Type</dt>
+                  <dd>
+                    <select id="categoryName" class="form-select">
+                      <option>Educational Videos</option>
+                      <option>Entertainment Videos</option>
+                      <option>Documentaries</option>
+                      <option>News and Current Affairs</option>
+                      <option>Tutorials and How-to Videos</option>
+                      <option>Product Reviews and Unboxings</option>
+                      <option>Vlogs (Video Blogs)</option>
+                      <option>Gaming Videos</option>
+                      <option>Music Videos</option>
+                      <option>Fitness and Health Videos</option>
+                      <option>Cooking and Food Videos</option>
+                      <option>Travel Videos</option>
+                      <option>Animation and Animated Stories</option>
+                      <option>Science and Technology Videos</option>
+                      <option>Sports and Recreation Videos</option>
+                      <option>Motivational and Inspirational Videos</option>
+                      <option>Beauty and Fashion Videos</option>
+                      <option>DIY and Crafting Videos</option>
+                      <option>Business and Marketing Videos</option>
+                      <option>Kids and Family Videos</option>
+                    </select>
+                  </dd>
+                </dl>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-success" data-bs-dismiss="modal" id="addVideo" onclick="saveVideos()">Add</button>
+                <button data-bs-dismiss="modal" class="btn btn-danger">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
